@@ -5,11 +5,5 @@
     <ProjectReference Include="..\..\src\Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache\Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="docker-compose.yml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>
