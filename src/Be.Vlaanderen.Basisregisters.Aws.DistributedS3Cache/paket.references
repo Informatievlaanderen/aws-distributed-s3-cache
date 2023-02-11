@@ -1,0 +1,17 @@
+Microsoft.Extensions.Caching.Abstractions
+Microsoft.Extensions.DependencyInjection
+Microsoft.Extensions.Configuration.Binder
+Microsoft.Extensions.Configuration.Json
+Microsoft.Extensions.Logging
+
+MessagePack
+MessagePackAnalyzer
+
+EasyCompressor
+EasyCompressor.LZ4
+
+AWSSDK.Core
+AWSSDK.S3
+
+SourceLink.Embed.AllSourceFiles
+SourceLink.Copy.PdbFiles

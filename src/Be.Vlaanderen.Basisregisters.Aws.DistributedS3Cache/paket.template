@@ -1,0 +1,25 @@
+type file
+version 1.0.0
+
+id Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache
+title Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache
+
+authors Basisregisters Vlaanderen
+owners Digitaal Vlaanderen <https://vlaanderen.be/digitaal-vlaanderen>
+copyright Copyright (c) Digitaal Vlaanderen
+requireLicenseAcceptance false
+projectUrl https://github.com/Informatievlaanderen/aws-distributed-s3-cache
+iconUrl https://raw.githubusercontent.com/Informatievlaanderen/build-pipeline/master/logo.png
+licenseUrl https://opensource.org/licenses/MIT
+
+description A distributed file cache implementation for AWS using S3.
+
+dependencies
+  framework: net6.0
+    Microsoft.Extensions.Logging >= LOCKEDVERSION
+    AWSSDK.Core >= LOCKEDVERSION
+    AWSSDK.S3 >= LOCKEDVERSION
+
+files
+  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache.dll => lib\net6.0
+  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache.pdb => lib\net6.0
