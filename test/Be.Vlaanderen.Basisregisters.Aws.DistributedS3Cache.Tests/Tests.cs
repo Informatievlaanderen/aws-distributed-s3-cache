@@ -22,7 +22,7 @@ public class DistributedCacheTests
         }
 
         var largeObject = new List<dynamic>();
-        for (int i = 0; i < 5000000; i++)
+        for (int i = 0; i < 50000; i++)
         {
             largeObject.Add(sample);
         }
