@@ -29,6 +29,7 @@ public sealed class S3CacheService
         var obj = S3CacheSerializer.Serializer.SerializeObject(value, true);
         await _cache.SetAsync(key, obj, token);
     }
+
     public async Task<T> GetValue<T>(string key, CancellationToken token = default) where T : new()
     {
         var serializedObj = await _cache.GetAsync(key, token);
