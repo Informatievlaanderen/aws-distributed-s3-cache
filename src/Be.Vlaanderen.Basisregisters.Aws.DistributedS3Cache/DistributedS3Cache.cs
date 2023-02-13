@@ -47,21 +47,27 @@ public class DistributedS3Cache : IDistributedCache
 
     public void Refresh(string key)
     {
-        Get(key);
+        //Do nothing
     }
 
-    public async Task RefreshAsync(string key, CancellationToken token = default)
+    public Task RefreshAsync(string key, CancellationToken token = default)
     {
-        await GetAsync(key, token);
+        //Do nothing
+        return Task.CompletedTask;
     }
 
     public void Remove(string key)
     {
-        throw new System.NotImplementedException();
+        _s3ClientHelper.DeleteBlobAsync(key, CancellationToken.None).GetAwaiter().GetResult();
     }
 
-    public Task RemoveAsync(string key, CancellationToken token = default)
+    public async Task RemoveAsync(string key, CancellationToken token = default)
     {
-        throw new System.NotImplementedException();
+        await _s3ClientHelper.DeleteBlobAsync(key, token);
+    }
+
+    public async Task PruneAsync(CancellationToken token = default)
+    {
+        await _s3ClientHelper.PruneBlobsAsync(token);
     }
 }

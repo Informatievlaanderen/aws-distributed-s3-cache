@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Amazon.S3;
 using Amazon.S3.Transfer;
 using System.Threading;
@@ -81,7 +83,7 @@ public class S3ClientHelper
 
     private async Task UpdateCurrentHead(string key, CancellationToken token = default)
     {
-        var prev = await S3ReadTextAsync(HEAD_FILE, token);
+        var prev = await S3ReadTextAsync(PREV_FILE, token);
         var currentHead = await S3ReadTextAsync(HEAD_FILE, token);
         if (!string.IsNullOrWhiteSpace(currentHead) && currentHead != prev)
         {
@@ -142,12 +144,68 @@ public class S3ClientHelper
         }
     }
 
-    private async Task DeleteBlobAsync(string name, CancellationToken cancellationToken = default)
+    public async Task DeleteBlobAsync(string name, CancellationToken cancellationToken = default)
     {
         await _s3Client.DeleteObjectAsync(new DeleteObjectRequest
         {
             BucketName = _options.Bucket,
             Key = $"{_options.RootDir}/{name}",
         }, cancellationToken);
+    }
+
+    public async Task PruneBlobsAsync(CancellationToken cancellationToken = default)
+    {
+        var keys = await ListUnreachableDirectoriesAsync(cancellationToken);
+        foreach (var key in keys)
+        {
+            await _s3Client.DeleteObjectAsync(new DeleteObjectRequest
+            {
+                BucketName = _options.Bucket,
+                Key = key,
+            }, cancellationToken);
+        }
+    }
+
+    private async Task<List<string>> ListUnreachableDirectoriesAsync(CancellationToken cancellationToken = default)
+    {
+        var excludedKeys = new List<string>
+        {
+            $"{_options.RootDir}/{HEAD_FILE}",
+            $"{_options.RootDir}/{PREV_FILE}",
+        };
+
+        string head = await S3ReadTextAsync(HEAD_FILE, cancellationToken);
+        if (!string.IsNullOrWhiteSpace(head))
+        {
+            excludedKeys.Add($"{_options.RootDir}/{head}/{head}");
+        }
+
+        string prev = await S3ReadTextAsync(PREV_FILE, cancellationToken);
+        if (!string.IsNullOrWhiteSpace(prev))
+        {
+            excludedKeys.Add($"{_options.RootDir}/{prev}/{prev}");
+        }
+
+        excludedKeys = excludedKeys.Distinct().ToList();
+
+        var response = await _s3Client.ListObjectsAsync(new ListObjectsRequest
+        {
+            BucketName = _options.Bucket,
+            Prefix = $"{_options.RootDir}/",
+
+        }, cancellationToken);
+
+
+        var results = new List<string>();
+        response.S3Objects.ForEach(i =>
+        {
+            var key = i.Key;
+            if (excludedKeys.Contains(key))
+            {
+                return;
+            }
+            results.Add(key);
+        });
+        return results;
     }
 }

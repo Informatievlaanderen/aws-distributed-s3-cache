@@ -19,6 +19,7 @@ public sealed class S3CacheService
     {
         return await _cache.GetHeadAsync();
     }
+
     public async Task<string> GetPrevKey()
     {
         return await _cache.GetPrevAsync();
@@ -28,6 +29,7 @@ public sealed class S3CacheService
     {
         var obj = S3CacheSerializer.Serializer.SerializeObject(value, true);
         await _cache.SetAsync(key, obj, token);
+        await Prune(token);
     }
 
     public async Task<T> GetValue<T>(string key, CancellationToken token = default) where T : new()
@@ -59,8 +61,8 @@ public sealed class S3CacheService
         return await GetValue<T>(key, token);
     }
 
-    private Task Prune()
+    public async Task Prune(CancellationToken token = default)
     {
-        throw new NotImplementedException();
+        await _cache.PruneAsync(token);
     }
 }

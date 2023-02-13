@@ -11,9 +11,6 @@ nuget Microsoft.Extensions.Logging 6.0.0
 nuget MessagePack 2.4.59
 nuget MessagePackAnalyzer 2.4.59
 
-nuget EasyCompressor 1.4.0
-nuget EasyCompressor.LZ4 1.4.0
-
 nuget AWSSDK.Core 3.7.100
 nuget AWSSDK.S3 3.7.100
 

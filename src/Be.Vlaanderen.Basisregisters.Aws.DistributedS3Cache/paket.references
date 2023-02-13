@@ -7,9 +7,6 @@ Microsoft.Extensions.Logging
 MessagePack
 MessagePackAnalyzer
 
-EasyCompressor
-EasyCompressor.LZ4
-
 AWSSDK.Core
 AWSSDK.S3
 
