@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/informatievlaanderen/aws-distributed-s3-cache/compare/v1.0.1...v1.0.2) (2023-02-13)
+
+
+### Bug Fixes
+
+* trigger build ([b6dfcf5](https://github.com/informatievlaanderen/aws-distributed-s3-cache/commit/b6dfcf58fdd63839bf80a03a752793c802cc6bd1))
+
 ## [1.0.1](https://github.com/informatievlaanderen/aws-distributed-s3-cache/compare/v1.0.0...v1.0.1) (2023-02-12)
 
 
