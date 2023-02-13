@@ -1,6 +1,6 @@
 {
   "name": "aws-distributed-s3-cache",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A distributed file cache implementation for AWS using S3",
   "author": "Basisregisters Vlaanderen",
   "license": "MIT",

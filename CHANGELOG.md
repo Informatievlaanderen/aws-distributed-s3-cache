@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/informatievlaanderen/aws-distributed-s3-cache/compare/v1.0.2...v1.0.3) (2023-02-13)
+
+
+### Bug Fixes
+
+* remove EasyCompression lib and use embedded + implement prune cache + bugfix ([8cc4c1e](https://github.com/informatievlaanderen/aws-distributed-s3-cache/commit/8cc4c1e57d8c8a4b0d5574a2da513443be496cdf))
+
 ## [1.0.2](https://github.com/informatievlaanderen/aws-distributed-s3-cache/compare/v1.0.1...v1.0.2) (2023-02-13)
 
 
