@@ -1,3 +1,11 @@
+## [1.0.4](https://github.com/informatievlaanderen/aws-distributed-s3-cache/compare/v1.0.3...v1.0.4) (2023-02-17)
+
+
+### Bug Fixes
+
+* dotnet 7 to 6 ([7b5e716](https://github.com/informatievlaanderen/aws-distributed-s3-cache/commit/7b5e716ffddf1fa819e09ae140b7dbc0ddc9b994))
+* dotnet 7 to 6 ([e76ccf0](https://github.com/informatievlaanderen/aws-distributed-s3-cache/commit/e76ccf08ecfd0fd4270ba751651ff65b1de8915e))
+
 ## [1.0.3](https://github.com/informatievlaanderen/aws-distributed-s3-cache/compare/v1.0.2...v1.0.3) (2023-02-13)
 
 
