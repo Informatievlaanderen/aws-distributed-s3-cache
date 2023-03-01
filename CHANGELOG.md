@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/informatievlaanderen/aws-distributed-s3-cache/compare/v1.0.4...v1.0.5) (2023-03-01)
+
+
+### Bug Fixes
+
+* remove byte range ([8500b7a](https://github.com/informatievlaanderen/aws-distributed-s3-cache/commit/8500b7a250443e8c74329121dc5f2804a9d12a18))
+
 ## [1.0.4](https://github.com/informatievlaanderen/aws-distributed-s3-cache/compare/v1.0.3...v1.0.4) (2023-02-17)
 
 
