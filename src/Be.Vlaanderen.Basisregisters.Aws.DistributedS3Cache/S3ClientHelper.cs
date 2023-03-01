@@ -16,7 +16,6 @@ public class S3ClientHelper
     public const string HEAD_FILE = "HEAD";
     public const string PREV_FILE = "PREV";
 
-    private static readonly ByteRange NoData = new ByteRange(0L, 0L);
     private readonly DistributedS3CacheOptions _options;
     private readonly IAmazonS3 _s3Client;
 
@@ -129,8 +128,7 @@ public class S3ClientHelper
             var response = await _s3Client.GetObjectAsync(new GetObjectRequest
             {
                 BucketName = _options.Bucket,
-                Key = $"{_options.RootDir}/{name}",
-                ByteRange = NoData
+                Key = $"{_options.RootDir}/{name}"
             }, cancellationToken);
 
             using StreamReader reader = new StreamReader(response.ResponseStream);
