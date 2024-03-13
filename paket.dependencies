@@ -1,36 +1,36 @@
-framework: net6.0
+framework: net8.0, netstandard2.1
 source https://api.nuget.org/v3/index.json
 
 // PRODUCTION STUFF
-nuget Microsoft.Extensions.Caching.Abstractions 6.0.0
-nuget Microsoft.Extensions.DependencyInjection 6.0.0
-nuget Microsoft.Extensions.DependencyInjection.Abstractions 6.0.0
-nuget Microsoft.Extensions.FileProviders.Abstractions  6.0.0
-nuget Microsoft.Extensions.Configuration 6.0.0
-nuget Microsoft.Extensions.Configuration.Abstractions 6.0.0
-nuget Microsoft.Extensions.Configuration.FileExtensions 6.0.0
-nuget Microsoft.Extensions.Configuration.Binder 6.0.0
-nuget Microsoft.Extensions.Configuration.Json 6.0.0
-nuget Microsoft.Extensions.Logging 6.0.0
-nuget Microsoft.Extensions.Logging.Abstractions 6.0.0
-nuget Microsoft.Extensions.Primitives 6.0.0
-nuget Microsoft.Extensions.FileSystemGlobbing 6.0.0
+nuget Microsoft.Extensions.Caching.Abstractions 8.0.0
+nuget Microsoft.Extensions.DependencyInjection 8.0.0
+nuget Microsoft.Extensions.DependencyInjection.Abstractions 8.0.1
+nuget Microsoft.Extensions.FileProviders.Abstractions  8.0.0
+nuget Microsoft.Extensions.Configuration 8.0.0
+nuget Microsoft.Extensions.Configuration.Abstractions 8.0.0
+nuget Microsoft.Extensions.Configuration.FileExtensions 8.0.0
+nuget Microsoft.Extensions.Configuration.Binder 8.0.1
+nuget Microsoft.Extensions.Configuration.Json 8.0.0
+nuget Microsoft.Extensions.Logging 8.0.0
+nuget Microsoft.Extensions.Logging.Abstractions 8.0.1
+nuget Microsoft.Extensions.Primitives 8.0.0
+nuget Microsoft.Extensions.FileSystemGlobbing 8.0.0
 
-nuget MessagePack 2.4.59
-nuget MessagePackAnalyzer 2.4.59
+nuget MessagePack 2.5.140
+nuget MessagePackAnalyzer 2.5.140
 
-nuget AWSSDK.Core 3.7.100
-nuget AWSSDK.S3 3.7.100
+nuget AWSSDK.Core 3.7.302.16
+nuget AWSSDK.S3 3.7.305.31
 
 // VBR STUFF
-nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 6.0.3
+nuget Be.Vlaanderen.Basisregisters.Build.Pipeline 7.0.4
 
 // TEST STUFF
-nuget Microsoft.NET.Test.Sdk 17.3.2
-nuget Microsoft.NETCore.Platforms 6.0.6
-nuget xunit 2.4.1
-nuget xunit.runner.visualstudio 2.4.3
-nuget FluentAssertions 6.5.1
+nuget Microsoft.NET.Test.Sdk 17.9.0
+nuget Microsoft.NETCore.Platforms 7.0.4
+nuget xunit 2.7.0
+nuget xunit.runner.visualstudio 2.5.7
+nuget FluentAssertions 6.12.0
 
 // BUILD STUFF
 nuget SourceLink.Embed.AllSourceFiles 2.8.3 copy_local: true
