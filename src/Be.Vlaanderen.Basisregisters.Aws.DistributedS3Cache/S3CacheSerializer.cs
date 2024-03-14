@@ -13,17 +13,18 @@ public sealed class S3CacheSerializer
 
     public CacheObject<T> DeserializeObject<T>(byte[] value, bool compression = true) where T : new()
     {
-        var options = TypelessContractlessStandardResolver.Options;
+        var options = ContractlessStandardResolver.Options;
         if (compression)
         {
             options = options.WithCompression(MessagePackCompression.Lz4Block);
         }
-        return MessagePackSerializer.Deserialize<CacheObject<T>>(value, options);
+        var p =  MessagePackSerializer.Deserialize<CacheObject<T>>(value, options);
+        return p;
     }
 
     public byte[] SerializeObject<T>(T value, bool compression = true) where T : new()
     {
-        var options = TypelessContractlessStandardResolver.Options;
+        var options = ContractlessStandardResolver.Options;
         if (compression)
         {
             options = options.WithCompression(MessagePackCompression.Lz4Block);
