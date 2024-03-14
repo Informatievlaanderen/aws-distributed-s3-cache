@@ -1,3 +1,21 @@
+# [2.0.0](https://github.com/informatievlaanderen/aws-distributed-s3-cache/compare/v1.0.5...v2.0.0) (2024-03-14)
+
+
+### Bug Fixes
+
+* revert TypelessContractlessStandardResolver to ContractlessStandardResolver ([eb20d05](https://github.com/informatievlaanderen/aws-distributed-s3-cache/commit/eb20d0595d2f3388ac704e157d62d32a0bcc6814))
+* set serializer option to TypelessContractlessStandardResolver ([25b8591](https://github.com/informatievlaanderen/aws-distributed-s3-cache/commit/25b859147808cd189049d04524fb0a5bfe3aeb28))
+
+
+### Features
+
+* move to dotnet 8.0.2 ([2cbe515](https://github.com/informatievlaanderen/aws-distributed-s3-cache/commit/2cbe515f74110e00115771ff1287cdc7cbd87a58))
+
+
+### BREAKING CHANGES
+
+* move to dotnet 8.0.2
+
 ## [1.0.5](https://github.com/informatievlaanderen/aws-distributed-s3-cache/compare/v1.0.4...v1.0.5) (2023-03-01)
 
 
