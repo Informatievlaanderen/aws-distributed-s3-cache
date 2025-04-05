@@ -1,22 +1,23 @@
+namespace Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache.Tests;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Dynamic;
+using System.Threading.Tasks;
 using Amazon;
 using Amazon.Runtime;
 using Amazon.S3;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache.Tests;
-
 public class DistributedCacheTests
 {
-    private readonly ITestOutputHelper output;
+    private readonly ITestOutputHelper _output;
 
     public DistributedCacheTests(ITestOutputHelper output)
     {
-        this.output = output;
+        this._output = output;
     }
 
     [Fact]
@@ -39,13 +40,13 @@ public class DistributedCacheTests
         var sample = GetObject(small: false);
         //Serialize
         var benchMarkSerializer = BenchMarkSerializer(() => S3CacheSerializer.Serializer.SerializeObject(sample, compression: true));
-        output.WriteLine($"BenchMark Serializer Large Object With Compression \n Size: {benchMarkSerializer.Mb}MB Seconds: {benchMarkSerializer.Seconds}");
+        _output.WriteLine($"BenchMark Serializer Large Object With Compression \n Size: {benchMarkSerializer.Mb}MB Seconds: {benchMarkSerializer.Seconds}");
 
         //Deserialize
         var benchMarkDeserializer = BenchMark(() =>
             S3CacheSerializer.Serializer.DeserializeObject<List<ExpandoObject>>(benchMarkSerializer.Response,
                 compression: true));
-        output.WriteLine($"BenchMark Deserializer Large Object With Compression \n Seconds: {benchMarkDeserializer.Seconds}");
+        _output.WriteLine($"BenchMark Deserializer Large Object With Compression \n Seconds: {benchMarkDeserializer.Seconds}");
 
         Assert.Equal(sample, benchMarkDeserializer.Response.Value);
     }
@@ -71,20 +72,20 @@ public class DistributedCacheTests
 
         //Serialize
         var benchMarkSerializer = BenchMarkSerializer(() => S3CacheSerializer.Serializer.SerializeObject(sample, compression: false));
-        output.WriteLine($"BenchMark Serializer Large Object Without Compression \n Size: {benchMarkSerializer.Mb}MB Seconds: {benchMarkSerializer.Seconds}");
+        _output.WriteLine($"BenchMark Serializer Large Object Without Compression \n Size: {benchMarkSerializer.Mb}MB Seconds: {benchMarkSerializer.Seconds}");
 
         //Deserialize
         var benchMarkDeserializer = BenchMark(() =>
             S3CacheSerializer.Serializer.DeserializeObject<List<ExpandoObject>>(benchMarkSerializer.Response,
                 compression: false));
-        output.WriteLine($"BenchMark Deserializer Large Object Without Compression \n Seconds: {benchMarkDeserializer.Seconds}");
+        _output.WriteLine($"BenchMark Deserializer Large Object Without Compression \n Seconds: {benchMarkDeserializer.Seconds}");
 
         Assert.Equal(sample, benchMarkDeserializer.Response.Value);
     }
 
     [Theory (Skip = "Requires AWS Credentials")]
     [InlineData("AWS_ACCESS_KEY","AWS_ACCESS_KEY_SECRET","BUCKET_NAME","ROOT_DIRECTORYNAME")]
-    public void PruneOldSnapshots(string accessKey, string secret, string bucket, string rootDir)
+    public async Task PruneOldSnapshots(string accessKey, string secret, string bucket, string rootDir)
     {
         var options = new DistributedS3CacheOptions
         {
@@ -93,7 +94,7 @@ public class DistributedCacheTests
         };
         var s3Client = new AmazonS3Client(new BasicAWSCredentials(accessKey, secret), RegionEndpoint.EUWest1);
         var service = new S3CacheService(new DistributedS3Cache(s3Client, options));
-        service.Prune().GetAwaiter().GetResult();
+        await service.Prune();
     }
 
     [Theory (Skip = "Requires AWS Credentials")]
@@ -113,8 +114,9 @@ public class DistributedCacheTests
         for (int i = 1; i < 6; i++)
         {
             //Push snapshot to S3
-            var seconds = BenchMark(() => service.SetValue($"{i}", largeObject).GetAwaiter().GetResult());
-            output.WriteLine($"Snapshot with key {i} with compression to S3 done in {seconds} seconds");
+            var counter = i;
+            var seconds = BenchMark(() => service.SetValue($"{counter}", largeObject).GetAwaiter().GetResult());
+            _output.WriteLine($"Snapshot with key {i} with compression to S3 done in {seconds} seconds");
         }
     }
 
@@ -124,7 +126,7 @@ public class DistributedCacheTests
         stopwatch.Start();
         var results = func();
         stopwatch.Stop();
-        (byte[] Response, float Mb, double Seconds) ret = new(results, ((results.Length / 1024f) / 1024f), stopwatch.Elapsed.TotalSeconds);
+        (byte[] Response, float Mb, double Seconds) ret = new(results, (results.Length / 1024f / 1024f), stopwatch.Elapsed.TotalSeconds);
         return ret;
     }
 

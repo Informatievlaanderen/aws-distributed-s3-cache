@@ -1,3 +1,5 @@
+namespace Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,8 +10,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Amazon.Runtime;
 using Amazon.S3.Model;
-
-namespace Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache;
 
 public class S3ClientHelper
 {
@@ -30,7 +30,7 @@ public class S3ClientHelper
         }
     }
 
-    public async Task<byte[]> DownloadBlobAsync(string key, CancellationToken cancellationToken = default)
+    public async Task<byte[]?> DownloadBlobAsync(string key, CancellationToken cancellationToken = default)
     {
         try
         {
@@ -46,7 +46,7 @@ public class S3ClientHelper
             exception.ErrorType == ErrorType.Sender
             && string.Equals(exception.ErrorCode, "NoSuchKey", StringComparison.OrdinalIgnoreCase))
         {
-            return null!;
+            return null;
         }
     }
 
