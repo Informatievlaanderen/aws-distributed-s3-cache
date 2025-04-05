@@ -1,7 +1,7 @@
+namespace Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache;
+
 using System;
 using System.Diagnostics.CodeAnalysis;
-
-namespace Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache;
 
 public sealed class DistributedS3CacheOptions
 {

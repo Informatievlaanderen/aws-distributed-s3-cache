@@ -1,9 +1,9 @@
+namespace Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache;
+
 using Amazon.S3;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Distributed;
-
-namespace Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache;
 
 public class DistributedS3Cache : IDistributedCache
 {
@@ -24,12 +24,12 @@ public class DistributedS3Cache : IDistributedCache
         return await _s3ClientHelper.S3ReadTextAsync(S3ClientHelper.HEAD_FILE, token);
     }
 
-    public byte[] Get(string key)
+    public byte[]? Get(string key)
     {
         return _s3ClientHelper.DownloadBlobAsync(key).Result;
     }
 
-    public async Task<byte[]> GetAsync(string key, CancellationToken token = default)
+    public async Task<byte[]?> GetAsync(string key, CancellationToken token = default)
     {
         return await _s3ClientHelper.DownloadBlobAsync(key, token);
     }

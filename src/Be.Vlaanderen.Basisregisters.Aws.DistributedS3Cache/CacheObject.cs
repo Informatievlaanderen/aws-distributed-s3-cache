@@ -1,7 +1,7 @@
+namespace Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache;
+
 using System;
 using MessagePack;
-
-namespace Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache;
 
 public sealed class CacheObject<T> where T: new()
 {

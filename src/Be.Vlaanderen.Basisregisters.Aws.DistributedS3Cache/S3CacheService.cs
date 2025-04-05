@@ -1,10 +1,9 @@
-using System;
+namespace Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache;
+
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Distributed;
-
-namespace Be.Vlaanderen.Basisregisters.Aws.DistributedS3Cache;
 
 public sealed class S3CacheService
 {
@@ -32,9 +31,12 @@ public sealed class S3CacheService
         await Prune(token);
     }
 
-    public async Task<T> GetValue<T>(string key, CancellationToken token = default) where T : new()
+    public async Task<T?> GetValue<T>(string key, CancellationToken token = default) where T : new()
     {
         var serializedObj = await _cache.GetAsync(key, token);
+        if(serializedObj is null)
+            return default;
+
         var obj = S3CacheSerializer.Serializer.DeserializeObject<T>(serializedObj, true);
         return obj.Value;
     }
@@ -47,7 +49,7 @@ public sealed class S3CacheService
             throw new FileNotFoundException("Key not found");
         }
 
-        return await GetValue<T>(key, token);
+        return (await GetValue<T>(key, token))!;
     }
 
     public async Task<T> GetPrevValue<T>(CancellationToken token = default) where T : new()
@@ -58,7 +60,7 @@ public sealed class S3CacheService
             throw new FileNotFoundException("Key not found");
         }
 
-        return await GetValue<T>(key, token);
+        return (await GetValue<T>(key, token))!;
     }
 
     public async Task Prune(CancellationToken token = default)
