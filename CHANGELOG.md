@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/informatievlaanderen/aws-distributed-s3-cache/compare/v2.0.0...v3.0.0) (2025-04-09)
+
+
+### Code Refactoring
+
+* use renovate and nuget + update pipeline ([25a1520](https://github.com/informatievlaanderen/aws-distributed-s3-cache/commit/25a1520d0cabc08eb986a8e137fa4365547cb62f))
+
+
+### BREAKING CHANGES
+
+* update to dotnet 9
+
 # [2.0.0](https://github.com/informatievlaanderen/aws-distributed-s3-cache/compare/v1.0.5...v2.0.0) (2024-03-14)
 
 
