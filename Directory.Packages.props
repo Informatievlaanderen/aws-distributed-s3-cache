@@ -12,7 +12,7 @@
         <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="9.0.3" />
         <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.3" />
 
-        <PackageVersion Include="MessagePack" Version="2.5.192" />
+        <PackageVersion Include="MessagePack" Version="2.5.198" />
         <PackageVersion Include="MessagePackAnalyzer" Version="2.5.192" />
 
         <PackageVersion Include="AWSSDK.Core" Version="3.7.402.35" />
