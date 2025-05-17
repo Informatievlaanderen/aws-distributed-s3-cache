@@ -242,8 +242,8 @@
       "be.vlaanderen.basisregisters.aws.distributeds3cache": {
         "type": "Project",
         "dependencies": {
-          "AWSSDK.Core": "[3.7.402.35, )",
-          "AWSSDK.S3": "[3.7.416.5, )",
+          "AWSSDK.Core": "[3.7.402.58, )",
+          "AWSSDK.S3": "[3.7.416.28, )",
           "MessagePack": "[2.5.192, )",
           "MessagePackAnalyzer": "[2.5.192, )",
           "Microsoft.Extensions.Caching.Abstractions": "[9.0.3, )",
@@ -255,17 +255,17 @@
       },
       "AWSSDK.Core": {
         "type": "CentralTransitive",
-        "requested": "[3.7.402.35, )",
-        "resolved": "3.7.402.35",
-        "contentHash": "9Jby5BBQTzZOqzQiFjJyr3zCe5GVi64U8gxOlPk3vTTuVJqtkisBJ0Jh1RBj2fNqnWmJLfaWSCLvX1L06zwHnQ=="
+        "requested": "[3.7.402.58, )",
+        "resolved": "3.7.402.58",
+        "contentHash": "fxXHQbm0MIyneSgmP+7Xrd4DJ14f6dqQRAozUdBecOCNTt9cYpQuWYVVRU1ydQHNkxceLEggdPiZ7OcJBS8Y0w=="
       },
       "AWSSDK.S3": {
         "type": "CentralTransitive",
-        "requested": "[3.7.416.5, )",
-        "resolved": "3.7.416.5",
-        "contentHash": "7ZzkW/x+6vLiGlieypKv1IBGW2LLhn8fJUhQ3E4hLXmddXapXWVhVro/MdfB2tYSGYo/kbDjYIcqN34KJaYdsw==",
+        "requested": "[3.7.416.28, )",
+        "resolved": "3.7.416.28",
+        "contentHash": "hqtZFzCZoSMKXMbNPGmNCvvR2xfZWBqV4dQ2Z6kurtvOCrwhZ9M4Cv4h3nBmFwBm2dyR3hKFY1hF3Y//FovYmQ==",
         "dependencies": {
-          "AWSSDK.Core": "[3.7.402.35, 4.0.0)"
+          "AWSSDK.Core": "[3.7.402.58, 4.0.0)"
         }
       },
       "MessagePack": {
