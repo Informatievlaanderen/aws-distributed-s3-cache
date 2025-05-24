@@ -4,20 +4,23 @@
     ".NETStandard,Version=v2.1": {
       "AWSSDK.Core": {
         "type": "Direct",
-        "requested": "[3.7.402.35, )",
-        "resolved": "3.7.402.35",
-        "contentHash": "9Jby5BBQTzZOqzQiFjJyr3zCe5GVi64U8gxOlPk3vTTuVJqtkisBJ0Jh1RBj2fNqnWmJLfaWSCLvX1L06zwHnQ==",
+        "requested": "[4.0.0.6, )",
+        "resolved": "4.0.0.6",
+        "contentHash": "qPg9l63BTLXARC8j8fjjTrHa5pNDBq1g+XDzu6Oi1zl1d+RKbjLrCXZYFBQN+O6ZJGeHRBNLD0fFcPEK4rEk5Q==",
         "dependencies": {
-          "Microsoft.Bcl.AsyncInterfaces": "1.1.0"
+          "Microsoft.Bcl.AsyncInterfaces": "8.0.0",
+          "System.Buffers": "4.5.1",
+          "System.Memory": "4.5.5",
+          "System.Text.Json": "8.0.5"
         }
       },
       "AWSSDK.S3": {
         "type": "Direct",
-        "requested": "[3.7.416.5, )",
-        "resolved": "3.7.416.5",
-        "contentHash": "7ZzkW/x+6vLiGlieypKv1IBGW2LLhn8fJUhQ3E4hLXmddXapXWVhVro/MdfB2tYSGYo/kbDjYIcqN34KJaYdsw==",
+        "requested": "[4.0.0.7, )",
+        "resolved": "4.0.0.7",
+        "contentHash": "dFELsA+Y7aXmvCTL83+oIWmr+0s/GpkqCKZK1ac7HPdYQFv+QHEAhrXdCJknsCKqK+v0yefkLzuKuSSP6k4tmA==",
         "dependencies": {
-          "AWSSDK.Core": "[3.7.402.35, 4.0.0)"
+          "AWSSDK.Core": "[4.0.0.5, 5.0.0)"
         }
       },
       "MessagePack": {
