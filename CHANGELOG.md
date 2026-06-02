@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/informatievlaanderen/aws-distributed-s3-cache/compare/v3.0.0...v3.1.0) (2026-06-02)
+
+
+### Features
+
+* update packages ([e2b82ba](https://github.com/informatievlaanderen/aws-distributed-s3-cache/commit/e2b82ba2871fb770f51fa92d44512b3da9ffa82c))
+
 # [3.0.0](https://github.com/informatievlaanderen/aws-distributed-s3-cache/compare/v2.0.0...v3.0.0) (2025-04-09)
 
 
