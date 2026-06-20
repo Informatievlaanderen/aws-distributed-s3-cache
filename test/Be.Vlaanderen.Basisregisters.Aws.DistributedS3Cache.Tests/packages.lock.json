@@ -231,7 +231,7 @@
           "AWSSDK.Core": "[4.0.7.4, )",
           "AWSSDK.S3": "[4.0.23.6, )",
           "MessagePack": "[2.5.192, )",
-          "MessagePackAnalyzer": "[2.5.192, )",
+          "MessagePackAnalyzer": "[2.5.302, )",
           "Microsoft.Extensions.Caching.Abstractions": "[10.0.8, )",
           "Microsoft.Extensions.Configuration.Binder": "[10.0.8, )",
           "Microsoft.Extensions.Configuration.Json": "[10.0.8, )",
@@ -266,9 +266,9 @@
       },
       "MessagePackAnalyzer": {
         "type": "CentralTransitive",
-        "requested": "[2.5.192, )",
-        "resolved": "2.5.192",
-        "contentHash": "otMq0pO6Hyuj83v4ZeT+Ex1xlgQEuRsrqgQxk7sKoGKI5l8aTQMOGCFBzSgM5npT4GfUjx63FneIHXKn+yDCkw=="
+        "requested": "[2.5.302, )",
+        "resolved": "2.5.302",
+        "contentHash": "yZCLkOTqP9ViapxE6KgFMxC2/429qOGZKPHn02Icn3IRiQHr1/VesTjV90UoaPYC8BbpAI7pWFrzorExMwsMYw=="
       },
       "Microsoft.Extensions.Caching.Abstractions": {
         "type": "CentralTransitive",
