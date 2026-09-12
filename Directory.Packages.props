@@ -15,8 +15,8 @@
         <PackageVersion Include="MessagePack" Version="2.5.192" />
         <PackageVersion Include="MessagePackAnalyzer" Version="2.5.192" />
 
-        <PackageVersion Include="AWSSDK.Core" Version="4.0.7.4" />
-        <PackageVersion Include="AWSSDK.S3" Version="4.0.23.6" />
+        <PackageVersion Include="AWSSDK.Core" Version="4.0.102.5" />
+        <PackageVersion Include="AWSSDK.S3" Version="4.0.103.2" />
 
         <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.6.0" />
         <PackageVersion Include="xunit" Version="2.9.3" />
