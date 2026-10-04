@@ -42,9 +42,9 @@
       },
       "MessagePackAnalyzer": {
         "type": "Direct",
-        "requested": "[2.5.192, )",
-        "resolved": "2.5.192",
-        "contentHash": "otMq0pO6Hyuj83v4ZeT+Ex1xlgQEuRsrqgQxk7sKoGKI5l8aTQMOGCFBzSgM5npT4GfUjx63FneIHXKn+yDCkw=="
+        "requested": "[2.5.307, )",
+        "resolved": "2.5.307",
+        "contentHash": "5onjHzg65IPARnwLKdl4KfOtgfQTIUsEtgZAtE2vvXUhQm2e2RaAV7zQbpysmpUEiUahtOI9yND+yimgjOIj2A=="
       },
       "Microsoft.Extensions.Caching.Abstractions": {
         "type": "Direct",
